@@ -1,0 +1,234 @@
+<html>
+    <head> 
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="PI.css">
+        <link rel="icon" href="images/LOGO.jpg" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <title>Order - Samgyeop Grill Box</title>
+    </head>
+    <body>
+        <div class="top">
+            <div class="menu" id="menu"><img src="menu_bar.png" alt="MENU ICON" id="menu"></div>
+            <div class="logo"><a href="LandingPage.html"><img src="images/LOGO.jpg" alt="SAMG LOGO"></a></div>
+            <div class="title"><h1>Samgyeop Grill Box - Cebu</h1></div>
+            <div class="tagline"><p>Grill anytime and anywhere your favorite authentic korean samgyeopsal.</p></div>
+        </div>
+
+        <div class="navBar">
+            <nav id="navBar" style="opacity: 0;">
+                <div class="x" id="x"><img src="images/X.png" alt="X-ICON" id="x"></div>
+
+                <div class="menu"><a href="RegularMenu.html">MENU & FAQs</a></div>
+                <div class="offers"><a href="SpecialOffers.html">SPECIAL OFFERS</a></div>
+                <div class="order"><a href="OrderPage.html">HOW TO ORDER</a></div>
+                <div class="about"><a href="AboutUs.html">ABOUT US</a></div>
+                <div class="feedback"><a href="Feedback.html">FEEDBACKS</a></div>
+                <div class="reseller"><a href="Reseller.html">BECOME A RESELLER</a></div>
+            </nav>
+        </div>
+
+        <h1 class="title-personal">PERSONAL INFORMATION</h1>
+
+        <h2 class="label-name">NAME: </h2>
+        <input class="name" type="text" name="full-name" id="full-name" placeholder="Enter full name:" autofocus="" required>
+
+        <div class="second-row">
+            <h2 class="label-email">EMAIL: </h2>
+        </div>
+
+        <div class="third-row">
+            <input class="email" type="email" name="email" id="email" placeholder="Enter email address:" *>
+        </div>
+
+        <h2 class="contact">PHONE NUMBER: </h2>
+        <input class="contact_no" type="text" name="contact_no" id="contact_no" placeholder="Enter contact number:" required>
+
+        <div class="address-row">
+            <h2 class="address">ADDRESS: </h2>
+            <input class="input-address" type="text" id="deliveryAddress" placeholder="Enter delivery address:" required>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="button-row">
+            <button class="user-loc" onclick="getCurrentLocation()">Use Current Location</button>
+            <button class="next" onclick="allMethod()">NEXT --></button>
+            <input type="" name="km" id="distance" style="opacity: 0;">
+        </div>
+
+        <div class="popup" id="popUp">
+            PLEASE ENTER THE NECESSARY INFORMATION!
+        </div>
+
+    <script>
+
+        var map;
+        var directionsService;
+        var directionsRenderer;
+        var distance;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 10.301476, lng: 123.894123}, //Cebu City, Philippines
+                zoom: 15
+            });
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
+
+            // Set pickup address statically
+            var pickupAddress = 'R. Landon Ext, Cebu City, Philippines';
+            var pickupMarker = new google.maps.Marker({
+                position: {lat: 10.301476, lng: 123.894123},
+                map: map,
+                title: 'Pickup Address'
+            });
+
+            // Enable Places Autocomplete for the delivery address input field
+            var deliveryInput = document.getElementById('deliveryAddress');
+            var autocomplete = new google.maps.places.Autocomplete(deliveryInput, { componentRestrictions: {country: 'ph'}, bounds: new google.maps.LatLngBounds(
+                new google.maps.LatLng(10.301476, 123.894123),
+                new google.maps.LatLng(10.301476, 123.894123)
+            )});
+            autocomplete.setFields(['address_components', 'geometry']);
+        }
+
+          function calculateDelivery() {
+            var deliveryAddress = document.getElementById('deliveryAddress').value;
+
+            var request = {
+                origin: 'R. Landon Ext, Cebu City, Philippines', // Static pickup address
+                destination: deliveryAddress,
+                travelMode: 'DRIVING',
+                region: 'ph' // Limit to Philippines
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(result);
+                    var route = result.routes[0];
+                    var legs = route.legs[0];
+                    distance = legs.distance.value / 1000; // Distance in kilometers
+                    localStorage.setItem('distance', distance);
+
+                    //alert('Distance: ' + distance + ' km');
+                } else {
+                    //alert('Address not found. Please Enter a Landmark.');
+                }
+            });
+        }
+
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geocoder = new google.maps.Geocoder();
+                    var latlng = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    geocoder.geocode({'location': latlng}, function(results, status) {
+                        if (status === 'OK') {
+                            if (results[0]) {
+                                document.getElementById('deliveryAddress').value = results[0].formatted_address;
+                                calculateDelivery(); // Automatically calculate delivery
+                            } else {
+                                //alert('No results found');
+                            }
+                        } else {
+                            //alert('Geocoder failed due to: ' + status);
+                        }
+                    });
+                }, function() {
+                    //alert('Error: The Geolocation service failed.');
+                });
+            } else {
+                //alert('Error: Your browser doesn\'t support geolocation.');
+            }
+        }
+
+        function getInput() {
+            var name = document.getElementById('full-name').value;
+            var email = document.getElementById('email').value;
+            var contact_no = document.getElementById('contact_no').value;
+            var address = document.getElementById('deliveryAddress').value;
+
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('contact_no', contact_no);
+            localStorage.setItem('address', address);
+        }
+
+        function allMethod(){
+            var n = document.getElementById('full-name').value;
+            var e = document.getElementById('email').value;
+            var c = document.getElementById('contact_no').value;
+            var a = document.getElementById('deliveryAddress').value;
+            
+            if(n === "" || e === "" || c === "" || a === "" ){
+                var popup = document.getElementById('popUp');
+                popup.style.display = 'block';
+
+                // Slide down animation
+                setTimeout(function() {
+                    popup.style.top = '20px'; // Adjust top position as needed
+
+                }, 100);
+                
+                // Hide the pop-up after 3 seconds (adjust as needed)
+                setTimeout(function() {
+                    popup.style.display = 'none';
+                    popup.style.top = '0'; // Reset top position
+                }, 3000);
+            }
+            else{
+            calculateDelivery();
+            getInput();
+            window.location.href = 'OrderForm.html';
+            }
+        }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg1IrNQ4FubSbOcRY4bGeeY3aN4VcbaoI&callback=initMap&libraries=places&v=weekly&solution_channel=GMP_CCS_autocomplete_v1"
+      defer
+    ></script>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggleButton = document.getElementById('x');
+                const toggleButton_2 = document.getElementById('menu');
+                const mainNav = document.getElementById('navBar');
+
+                mainNav.style.pointerEvents = 'none';
+    
+                toggleButton.addEventListener('click', function() {
+                    mainNav.style.opacity = '0';
+                    mainNav.style.zIndex = '0';
+                    mainNav.style.pointerEvents = 'none';
+                    mainNav.style.transition = '0.25s ease';
+                });
+    
+                toggleButton_2.addEventListener('click', function() {
+                    if (mainNav.style.opacity === '0') {
+                        mainNav.style.opacity = '1';
+                        mainNav.style.pointerEvents = 'visible';
+                        mainNav.style.zIndex = '99999';
+                        mainNav.style.transition = '0.25s ease';
+                    } else {
+                        mainNav.style.opacity = '0';
+                        mainNav.style.zIndex = '0';
+                        mainNav.style.pointerEvents = 'none';
+                        mainNav.style.transition = '0.25s ease';
+                    }
+                });
+            });
+
+        </script>
+</script>
+    </body>
+</html>

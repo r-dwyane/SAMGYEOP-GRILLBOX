@@ -1,0 +1,304 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;   
+}
+html{
+    background-image: url('images/final.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 225%;
+}
+#homeButton{
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+#homeButton:hover{
+    transform: scale(1.2);
+}
+#title{
+    margin-top: 20px;
+    margin-left: 8%;
+    font-weight: 700;
+    color: #FFFF;
+}
+.invoice-container{
+    width: 80%;
+    min-height: 900px;
+    margin: 20px auto;
+    background-color: #FFFF;
+    border-radius: 20px;
+    overflow: auto;
+}
+.first-row{
+    display: flex;
+    align-items: center;
+}
+.first-row img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 50px 50px;
+}
+.first-row h1{
+    color: #000000;
+    margin: 50px 50px;
+}
+.inv-dtls{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 75px;
+    color: #000000;
+}
+.date-row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.date-row h4{
+    margin-left: 140px;
+}
+.dtime-row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.dtime-row h4{
+    margin-left: 55px   
+}
+.mop-row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.mop-row h4{
+    margin-left: 20px;
+    text-decoration: underline;
+}
+#inv-title{
+    color: #737619;
+    margin-top: 20px;
+}
+#inv-num h2{
+    font-weight: bold;
+}
+#date-value, #dtime-value{
+    text-decoration: underline;
+}
+.cs-dtl{
+    margin-left: 50px;
+}
+.second-row{
+    display: flex;
+    align-items: center;
+}
+.personal-info h2{
+    margin-top: 10px;
+    margin-left: 75px;
+    font-size: 16px;
+    font-weight: 550;
+    color: #000000;
+}
+.order-dtl{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.header{
+    display: flex;
+    width: 90%;
+    height: 10%;
+    margin: 15px auto;
+    background-color: #933F1E;
+    border-radius: 15px;
+}
+.header h1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 25px;
+    color: #FFFF;
+}z
+#item{
+    margin-left: 50px;
+    margin-right: 400px;
+}
+#quant{
+    margin-left: 55px;
+    margin-right: 200px;
+}
+/*REGULAR*/
+.parent-reg{
+    width: 85%;
+    margin: 10px auto;
+}
+.regular-container{
+    display: flex;
+    align-items: center;
+}
+.regular-container h2{
+    font-weight: 600;
+    margin-right: 400px;
+}
+.regular-container #reg-quantity{
+    font-size: 18px;
+    margin-left: 50px;
+}
+.regular-container #reg-price{
+    text-decoration: underline;
+    font-size: 18px;
+    margin-left: 250px;
+}
+.mt-var{
+    display: flex;
+    align-items: center;
+}
+.mt h4{
+    margin-bottom: 10px;
+}
+/*PREMIUM BOX*/
+.parent-prem{
+    width: 85%;
+    margin: 10px auto;
+}
+.premium-container{
+    display: flex;
+    align-items: center;
+}
+.premium-container h2{
+    font-weight: 600;
+    margin-right: 400px;
+}
+.premium-container #prem-quantity{
+    font-size: 18px;
+    margin-left: 35px;
+}
+.premium-container #prem-price{
+    text-decoration: underline;
+    font-size: 18px;
+    margin-left: 250px;
+}
+.mt-vr1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.mt-vr1 h3{
+    margin-right: 10.75%;
+}
+.mt-vr2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.mt-vr2 h3{
+    margin-right: 10%;
+}
+/*ADD ONS*/
+.parent-addons{
+    width: 85%;
+    margin: 10px auto;
+}
+.addons-container{
+    display: flex;
+}
+.addons-container h2{
+    font-weight: 600;
+}
+.add-ons{
+    display: flex;
+}
+.promo{
+    display: flex;
+    align-items: center;
+}
+.promo h2{
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.promo #code{
+    margin-top: 20px;
+    margin-left: 25px;
+    text-decoration: underline;
+}
+.df{
+    display: flex;
+    align-items: center;
+}
+.df h2{
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.df #del-fee{
+    margin-top: 20px;
+    margin-left: 25px;
+    text-decoration: underline;
+}
+.tots{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.tots h1{
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: 25px;
+    color: #737619;
+}
+.tots #total{
+    margin-top: 20px;
+    margin-left: 25px;
+    font-size: 20px;
+    color: #737619;
+    text-decoration: underline;
+}
+.button-row{
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+    margin-top: 0px;
+    min-width: 100px;
+    min-height: 100px
+}
+.save{
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.save:hover{
+    transform: scale(1.1);
+}
+.to-messenger{
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 25px;
+    color: #FFFF;
+    background-color: #737619;
+    border-radius: 10px;
+    border: solid 2px #737619; 
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.to-messenger:hover{
+    transform: translateX(10%);
+    color: #737619;
+    background-color: #FFFF;
+    border: solid 2px #737619;
+}

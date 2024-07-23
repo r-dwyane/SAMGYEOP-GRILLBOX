@@ -1,0 +1,294 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;   
+}
+body{
+    background-image: url('images/final.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.top{
+    position: fixed;
+    background-color: #933F1E;
+    width: 95%;
+    height: 131px;
+    margin: 10px 40px;
+    border-radius: 20px;
+    opacity: 0.9;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}
+.logo img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid 2px #000000;
+    top: 15px;
+    left: 50px;
+    transition: 0.5s ease;
+}
+.logo img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.menu img{
+    position: absolute;
+    top: 40px;
+    right: 75px;
+    cursor: pointer;
+}
+.title h1{
+    position: absolute;
+    font-family: "Kumbh Sans", sans-serif;
+    color: #FFFF;
+    top: 30px;
+    left: 200px;
+}
+.tagline p{
+    position: absolute;
+    top: 75px;
+    left: 200px;
+    color: #FFFF;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/*NAVIGATION BAR*/
+.navbar nav{
+    position: fixed;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    background-color: #FFFF;
+    top: 21%;
+    right: 75px;
+    width: 400px;
+    height: 515px;
+    border: solid 2px #47392E;
+    border-radius: 20px;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}
+.navbar nav a{
+    display: grid;
+    margin: 13px 50px;
+    justify-content: center;
+    text-decoration: none;
+    border: solid 3px #47392E;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 20px;
+    color: #47392E;
+    transition: all 0.5s ease;
+}
+.navbar nav .x img{
+    position: absolute;
+    top: 15;
+    right: 15;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.navbar nav a:hover{
+    border: solid 3px #47392E;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 20px;
+    color: #FFFF;
+    background-color: #737619;
+}
+/*END OF NAVBAR CSS*/
+
+h1.title-personal{
+    margin-top: 11%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFF;
+}
+h2.label-name{
+    margin-left: 10%;
+    margin-bottom: 1%;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFFF;
+}
+input.name{
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #47392E;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #47392E;
+}
+.second-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1%;
+}
+.label-email{
+    margin-left: 10%;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFFF;
+}
+.contact{
+    margin-left: 10%;
+    margin-bottom: 1%;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFFF;
+}
+.third-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+input.email{
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #47392E;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #47392E;
+}
+input.contact_no{
+    margin-left: 10%;
+    margin-bottom: 2%;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #47392E;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #47392E;
+}
+h2.address{
+    margin-left: 10%;
+    margin-bottom: 1%;
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFFF;
+}
+input.input-address{
+    margin-left: 10%;
+    margin-bottom: 1%;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #47392E;
+    width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 2px #47392E;
+}
+#map {
+    position: absolute;
+    top: 40%;
+    right: 5%;
+    height: 415px;
+    width: 50%;
+    border-radius: 10px;
+    z-index: 9999;
+}
+.button-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+.user-loc{
+    margin-right: 10px;
+    color: #FFFF;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px;
+    background-color: #737619;
+    transition: 0.25s ease;
+    border: solid 3px #737619;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.user-loc:hover{
+    color: #737619;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px;
+    background-color: #FFFF;
+    transition: 0.25s ease;
+    border: solid 3px #737619;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.next{
+    width: 125px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #737619;
+    transition: 0.25s ease;
+    border: solid 3px #737619;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.next{
+    text-decoration: none;
+    color: #FFFF;
+}
+.next:hover{
+    color: #737619;
+    transform: translate(5%);
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #FFFF;
+    transition: 0.25s ease;
+    border: solid 3px #737619;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.next a:hover{
+    color: #737619;
+    text-decoration: none;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #FF0000;
+    color: #fff;
+    padding: 10px;
+    transition: top 0.5s ease-in-out;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="I.css">
+        <link rel="icon" href="images/LOGO.jpg" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <title>Order Confirmed - Samgyeop Grill Box</title>
+    </head>
+    <body>
+        <a href="LandingPage.html"><img src="images/home.png" id="homeButton"></a>
+        <h1 id="title" style="font-family: 'Kumbh Sans', sans-serif;">ORDER CONFIRMED!</h1>
+
+        <div class="invoice-container" id="invoice-container">
+            <div class="first-row">
+
+                <h1 style="font-family: 'Kumbh Sans', sans-serif;">Samgyeop Grill Box - Cebu</h1>
+                <div>
+                    <div class="inv-dtls" style="font-family: 'Inter', sans-serif;">
+                        <h2 id="inv-title" style="font-family: 'Inter', sans-serif;">ORDER RECEIPT</h2>
+                        <h2 id="inv-num" style="font-family: 'Inter', sans-serif;">#52025</h2>
+                        <div class="date-row">
+                            <h3 style="font-family: 'Inter', sans-serif;">Date:</h3>
+                            <h4 id="date-value" style="font-family: 'Inter', sans-serif;">2024-03-15</h4>
+                        </div>
+                        <div class="dtime-row">
+                            <h3 style="font-family: 'Inter', sans-serif;">Delivery Time:</h3>
+                            <h4 id="dtime-value" style="font-family: 'Inter', sans-serif;">Standard Time (40 mins)</h4>
+                        </div>
+                        <div class="mop-row">
+                            <h3 style="font-family: 'Inter', sans-serif;">Mode of Payment:</h3>
+                            <h4 id="mop-value" style="font-family: 'Inter', sans-serif;">Cash on Delivery</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="cs-dtl" style="font-family: 'Inter', sans-serif;">Customer Details</h2>
+
+            <div class="second-row">
+                <div class="personal-info" style="font-family: 'Inter', sans-serif;">
+                    <h2 id="name">Antonette Lariosa</h2>
+                    <h2 id="email">anto.lariosa.swu@phinmaed.com</h2>
+                    <h2 id="contact_no">0912345678</h2>
+                    <h2 id="address">No. 57 H, Urgello Street, Sambag I, Cebu City, 6000 Cebu, Philippines</h2>
+                </div>
+            </div>
+
+            <h2 class="order-dtl" style="font-family: 'Inter', sans-serif;">Order Details</h2>
+
+            <div class="header" style="font-family: 'Inter', sans-serif;">
+                <h1 id="item">Items</h1>
+                <h1 id="quant">Quantity</h1>
+                <h1>Price</h1>
+            </div>
+
+            <div class="parent-reg" style="font-family: 'Inter', sans-serif;">
+                <div class="regular-container">
+                    <h2>Regular Box</h2>
+                    <h4 id="reg-quantity">1</h4>
+                    <h4 id="reg-price">0.00</h4>
+                </div>
+                <br>
+                <div class="meat-var"style="font-family: 'Inter', sans-serif;">
+                    <h3 class="mt" id="meat-var" style="margin-bottom: 10px;"></h3>
+                </div>
+            </div>
+
+            <div class="parent-prem">
+                <div class="premium-container" style="font-family: 'Inter', sans-serif;">
+                    <h2>Premium Box</h2>
+                    <h4 id="prem-quantity">0</h4>
+                    <h4 id="prem-price">0.00</h4>
+                </div>
+                <br>
+                <div class="mt-vr1" style="font-family: 'Inter', sans-serif;">
+                </div>
+                <div class="mt-vr2" style="font-family: 'Inter', sans-serif;">
+                </div>
+            </div>
+
+            <div class="parent-addons"style="font-family: 'Inter', sans-serif;">
+                <div class="addons-container">
+                    <h2>Add Ons</h2>
+                </div>
+                <div id="for-addons">
+                    
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="promo" style="font-family: 'Inter', sans-serif;">
+                <h2>Promo Code:</h2>
+                <h3 id="code"></h3>
+            </div>
+
+            <div class="df" style="font-family: 'Inter', sans-serif;">
+                <h2>Delivery Fee:</h2>
+                <h3 id="del-fee">153.00</h3>
+            </div>
+
+            <div class="tots"style="font-family: 'Inter', sans-serif;">
+                <h1>TOTAL:</h1>
+                <h2 id="total">153.00</h2>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <img src="images/save.png" class="save" onclick="" id="saveButton">
+            <button class="to-messenger" onclick="openMessenger()" style="font-family: 'Inter', sans-serif;">Send to Admin --></button>
+        </div>
+
+
+    <script>
+
+        var generatedCode = Math.floor(10000 + Math.random() * 90000);
+        document.getElementById("inv-num").textContent = "#" + generatedCode;
+
+        var name = localStorage.getItem('name');
+        var email = localStorage.getItem('email');
+        var contact_no = localStorage.getItem('contact_no');
+        var address = localStorage.getItem('address');
+        var deli_fee = localStorage.getItem('df');
+        var promo_field = localStorage.getItem('promo');
+        var mop = localStorage.getItem('mode');
+        var kimchi = localStorage.getItem('kimchi');
+        var lettuce = localStorage.getItem('lettuce');
+        var potato = localStorage.getItem('potato');
+        var fishcake = localStorage.getItem('fishcake');
+        var corn = localStorage.getItem('corn');
+        var nori = localStorage.getItem('nori');
+        var regular_box = localStorage.getItem('regular_box');
+        var reg_price = localStorage.getItem('reg_price');
+        var premium_box = localStorage.getItem('premium_box');
+        var prem_price = localStorage.getItem('prem_price');
+        var tots = localStorage.getItem('total');
+        var delivery_time = localStorage.getItem('delivery_time');
+        var delivery_date = localStorage.getItem('delivery_date');
+        const storedBoxMeatVariants = localStorage.getItem('storedBoxMeatVariants');
+        const storedBoxMeatVariants_reg = localStorage.getItem('storedBoxMeatVariants_reg');
+
+        document.getElementById('name').textContent = name;
+        document.getElementById('email').textContent = email;
+        document.getElementById('address').textContent = address;
+        document.getElementById('contact_no').textContent = contact_no;
+        document.getElementById('date-value').textContent = delivery_date;
+        document.getElementById('dtime-value').textContent = delivery_time;
+        document.getElementById('mop-value').textContent = mop;
+        document.getElementById('code').textContent = promo_field;
+        document.getElementById('del-fee').textContent = '₱' + parseInt(deli_fee) + '.00';
+        document.getElementById('total').textContent = '₱' + parseInt(tots) + '.00';
+        document.getElementById('reg-quantity').textContent = regular_box;
+        document.getElementById('prem-quantity').textContent = premium_box;
+
+        let rprice = regular_box * 269.00;
+        let pprice = premium_box * 379.00;
+
+        document.getElementById('reg-price').textContent ='₱' + rprice + '.00';
+        document.getElementById('prem-price').textContent = '₱' + pprice + '.00';
+
+        //FOR SIDE DISHES
+            if (kimchi > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Kimchi';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = kimchi;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (kimchi * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '525px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+            if (lettuce > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Lettuce';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = lettuce;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (lettuce * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '519px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+            if (potato > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Potato Marbles';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = potato;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (potato * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '451px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+            if (fishcake > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Fishcake';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = fishcake;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (fishcake * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '509px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+            if (corn > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Corn';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = corn;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (corn * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '545px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+            if (nori > 0) {
+                let row = document.createElement('div');
+                row.className = 'addons';
+                row.style.display = 'flex';
+                row.style.marginTop = '10px';
+                let name = document.createElement('h3');
+                name.className = 'addons-name';
+                name.textContent = 'Nori';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = nori;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = '₱' + (nori * 30) + '.00';
+                price.style.textDecoration = 'underline';
+
+                var addons_container = document.getElementById('for-addons');
+
+                qty.style.marginLeft = '552px';
+                price.style.marginLeft = '250px';
+                qty.style.fontSize = '18px';
+                price.style.fontSize = '18px';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+            }
+
+        const boxMeatVariants_reg = storedBoxMeatVariants_reg ? JSON.parse(storedBoxMeatVariants_reg) : [];
+             //FOR REGULAR BOX
+
+            if (regular_box <= 0) {
+
+            }
+            else{
+                for (let i = 0; i < boxMeatVariants_reg.length; i++) {
+                const box_1 = boxMeatVariants_reg[i];
+                
+                //alert(box_1);
+
+                // Access individual meat variants and their unique identifiers
+                const variant = box_1.variant;
+                
+                const uniqueIdentifier_1 = 'Box ' + (i + 1); // Unique identifier for each box
+
+                // Create elements for meat variants
+                const variant1Element_1 = document.createElement('h4');
+                variant1Element_1.textContent = uniqueIdentifier_1 + ' Meat Variant: Pork Galbi';
+
+                // Append meat variant elements to respective premium box containers
+                const regularBox = document.querySelector('.meat-var');
+                const box_2 = regularBox.querySelector('.mt');
+
+                box_2.appendChild(variant1Element_1);
+                }
+            }
+
+            // Convert the stored JSON string back to an array
+            const boxMeatVariants = storedBoxMeatVariants ? JSON.parse(storedBoxMeatVariants) : [];
+
+            //FOR PREMIUM BOX
+
+            if (premium_box <= 0) {
+
+            }
+            else{
+                for (let i = 0; i < boxMeatVariants.length; i++) {
+                const box = boxMeatVariants[i];
+                
+                //alert(box);
+                // Access individual meat variants and their unique identifiers
+                const variant1 = box.variant1;
+                const variant2 = box.variant2;
+                
+                const uniqueIdentifier = 'Box ' + (i + 1); // Unique identifier for each box
+
+                // Create elements for meat variants
+                const variant1Element = document.createElement('h3');
+                variant1Element.textContent = uniqueIdentifier + ' Meat Variant 1: Pork Galbi';
+                const variant2Element = document.createElement('h3');
+                variant2Element.textContent = uniqueIdentifier + ' Meat Variant 2: Spicy Pork';
+
+                // Append meat variant elements to respective premium box containers
+                const premiumBox = document.querySelector('.parent-prem');
+                const box6 = premiumBox.querySelector('.mt-vr1');
+                const box7 = premiumBox.querySelector('.mt-vr2');
+
+                box6.appendChild(variant1Element);
+                box7.appendChild(variant2Element);
+            }
+            }
+
+
+        function openMessenger() {
+            var messengerLink = 'https://www.facebook.com/messages/t/104254076024372';
+            window.open(messengerLink, '_blank');
+        }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const saveButton = document.getElementById('saveButton');
+    const elementToSave = document.getElementById('invoice-container');
+
+    saveButton.addEventListener('click', function() {
+        // Define the desired width and height for the canvas
+
+        var height = document.getElementById('invoice-container').offsetHeight;
+        var width = document.getElementById('invoice-container').offsetWidth;
+        const canvasWidth = width; // Change this value to your desired width
+        const canvasHeight = height; // Change this value to your desired height
+
+        html2canvas(elementToSave, { 
+            width: canvasWidth, 
+            height: canvasHeight,
+            allowTaint: true,
+            useCORS: true // or useCORS: true
+        }).then(function(canvas) {
+            const imageDataURL = canvas.toDataURL('image/png');
+
+            // Create a link element to download the image
+            const link = document.createElement('a');
+            link.href = imageDataURL;
+            link.download = 'SGBC ORDER-RECEIPT - #' +  generatedCode + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+    });
+});
+
+    </script>
+    </body>
+
+<script type="">
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function autoDownload() {
+        const elementToSave = document.getElementById('invoice-container');
+
+        
+        var height = elementToSave.offsetHeight;
+        var width = elementToSave.offsetWidth;
+        const canvasWidth = width;
+        const canvasHeight = height; 
+
+        html2canvas(elementToSave, { 
+            width: canvasWidth, 
+            height: canvasHeight,
+            allowTaint: true,
+            useCORS: true
+        }).then(function(canvas) {
+            const imageDataURL = canvas.toDataURL('image/png');
+
+            const link = document.createElement('a');
+            link.href = imageDataURL;
+            link.download = 'SGBC ORDER-RECEIPT - #' +  generatedCode + '.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    setTimeout(autoDownload, 1000);
+});
+
+</script>
+</html>

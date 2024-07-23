@@ -1,0 +1,80 @@
+<html>
+    <head> 
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="SP.css">
+        <link rel="icon" href="images/LOGO.jpg" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <title>Special Offers - Samgyeop Grill Box</title>
+    </head>
+    <body>
+        <div class="top">
+            <div class="menu" id="menu"><img src="menu_bar.png" alt="MENU ICON" id="menu"></div>
+            <div class="logo"><a href="LandingPage.html"><img src="images/LOGO.jpg" alt="SAMG LOGO"></a></div>
+            <div class="title"><h1>Samgyeop Grill Box - Cebu</h1></div>
+            <div class="tagline"><p>Grill anytime and anywhere your favorite authentic korean samgyeopsal.</p></div>
+        </div>
+
+        <div class="navBar">
+            <nav id="navBar" style="opacity: 0;">
+                <div class="x" id="x"><img src="images/X.png" alt="X-ICON" id="x"></div>
+
+                <div class="menu"><a href="RegularMenu.html">MENU & FAQs</a></div>
+                <div class="offers"><a href="SpecialOffers.html">SPECIAL OFFERS</a></div>
+                <div class="order"><a href="OrderPage.html">HOW TO ORDER</a></div>
+                <div class="about"><a href="AboutUs.html">ABOUT US</a></div>
+                <div class="feedback"><a href="Feedback.html">FEEDBACKS</a></div>
+                <div class="reseller"><a href="Reseller.html">BECOME A RESELLER</a></div>
+            </nav>
+        </div>
+
+        <div class="special"><img src="images/squad.png"> <img src="images/family.png"></div>
+
+        <h1 class="squad-code">PROMO CODE: <u>GYSQUAD8</u></h1> <h1 class="family-code">PROMO CODE: <u>FAMFEAST3</u></h1>
+
+        <div class="title-special"><img src="images/special_title.png" alt="special offers!"></div>
+
+        <div class="note"><h2><i>*Offers depends on the stock available of the day.</i></h2></div>
+
+        <footer>
+            <div class="footer-bg"></div>
+            <h1 class="copyright">Copyright <b>©</b> 2023 <b><u>Logic Learners</u></b> - All rights Reserved</h1>
+        </footer>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggleButton = document.getElementById('x');
+                const toggleButton_2 = document.getElementById('menu');
+                const mainNav = document.getElementById('navBar');
+
+                mainNav.style.pointerEvents = 'none'
+    
+                toggleButton.addEventListener('click', function() {
+                    mainNav.style.opacity = '0';
+                    mainNav.style.zIndex = '0';
+                    mainNav.style.pointerEvents = 'none';
+                    mainNav.style.transition = '0.25s ease';
+                });
+    
+                toggleButton_2.addEventListener('click', function() {
+                    if (mainNav.style.opacity === '0') {
+                        mainNav.style.opacity = '1';
+                        mainNav.style.pointerEvents = 'visible';
+                        mainNav.style.zIndex = '99999';
+                        mainNav.style.transition = '0.25s ease';
+                    } else {
+                        mainNav.style.opacity = '0';
+                        mainNav.style.zIndex = '0';
+                        mainNav.style.pointerEvents = 'none';
+                        mainNav.style.transition = '0.25s ease';
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

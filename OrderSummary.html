@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="OS.css">
+        <link rel="icon" href="images/LOGO.jpg" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <title>Order Summary - Samgyeop Grill Box</title>
+    </head>
+    <body>
+        <img src="images/back_button.png" id="goBackButton">
+        <h2 id="ddate" style="opacity: 0"></h2>
+
+        <div class="first-row">
+            <div class="customer-info">
+                <h1>CUSTOMER INFO</h1>
+
+                <h3 class="name" id="name">Antonette Lariosa</h3>
+                <br>
+                <h3 class="email" id="email">anto.lariosa.swu@phinmaed.com*</h3>
+                <br>
+                <h3 class="contact_no" id="contact_no">0912345678*</h3>
+                <br>
+                <h3 class="address" id="address">Cebu City</h3>
+                <br>
+                <br>
+
+                <h2 id="edit" onclick="goTo()">Edit info</h2>
+            </div>
+
+            <div class="delivery-time">
+                <div class="delivery-time-text">
+                    <h3>Estimated delivery</h3>
+                    <br>
+                    <h1 id="time">Standard (40 mins)</h1>
+                    <br>
+                    <h2 id="change" onclick="delivah()">Change</h2>
+                </div>
+                <div class="delivery-time-img">
+                    <img src="images/fast-delivery.png" alt="Fast Delivery">
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="second-row">
+            <h1>ORDER DETAILS</h1>
+
+            <div class="regular-container">
+                <div class="row-1">
+                    <h3>Quantity</h3>
+                   
+                    <h3>Price</h3>
+                </div>
+                <div class="row-2">
+                    <h2>REGULAR BOX</h2> 
+                    <h4 class="reg-quantity" id="reg-quantity">1</h4>
+                    <h4 class="reg-price" id="reg-price">269.00</h4>
+                </div>
+                <div class="child-class">
+
+                    <div class="row-3">
+                    <h2 id=""></h2>
+                    <h3 id="meat-variant"></h3>
+                </div>
+                </div>
+            </div>
+
+            <div class="premium-container">
+                <div class="row-4">
+                    <h3>Quantity</h3>
+                    <h3>Price</h3>
+                </div>
+                <div class="row-5">
+                    <h2>PREMIUM BOX</h2>
+                    <h4 class="prem-quantity" id="prem-quantity">1</h4>
+                    <h4 class="prem-price" id="prem-price">379.00</h4>
+                </div>
+                <div class="row-6">
+                    <h2 id="box_label1"></h2>
+                    <h3 id="meat-variant1"></h3>
+                </div>
+                <div class="row-7">
+                    <h2 id="box_label2"></h2>
+                    <h3 id="meat-variant2"></h3>
+                </div>
+            </div>
+
+            <div class="addons-container" id="addons-container">
+                <div class="row-8">
+                    <h3>Quantity</h3>
+                    <h3>Price</h3>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="third-row">
+            <div class="mop">
+                <h1>MODE OF PAYMENT</h1>
+                <div class="payment-options">
+                  <input type="radio" id="gcash" name="payment" value="GCash" checked>
+                  <label for="gcash">
+                    <img src="images/GCASH.png" alt="GCash" id="gcash-img">
+                    GCash
+                  </label>
+                </div>
+
+                <div class="payment-options">
+                  <input type="radio" id="cod" name="payment" value="COD">
+                  <label for="cod">
+                    <img src="images/cod.png" alt="Cash on Delivery" id="cod-img">
+                    Cash on Delivery
+                  </label>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h1 class="title">ORDER SUMMARY</h1>
+
+                <div class="promo-row">
+                    <h2>Promo Code:</h2> 
+                    <h3 id="promo">FAMFEAST3</h3>
+                </div>
+                    
+                <div class="df-row">
+                    <h2>Delivery Fee:</h2>
+                    <h3 id="df">159.00</h3>
+                </div>
+
+                <p><i>*Estimated delivery fee only</i></p>
+                <p><i>= ₱26 + (10 x kilometers)</i></p>
+                <br>
+                <hr>
+
+                <div class="total-row">
+                     <h1 class="total-label">Total:</h2>
+                    <h2 id="total">₱1000.00</h2>
+                </div>
+            </div>
+        </div>
+
+        <button class="confirm" id="confirm" onclick="toInvoice()">CONFIRM</button>
+
+        <i><h6>By clicking the Confirm button, you agree to our 
+            <button id="term" onclick="show()"><u><i>Terms and Conditions</i></u></button>.</h6>
+
+            <div class="overlay" id="overlay"></div>
+        <div class="pop-up" id="pop-up" style="display: none; z-index: 9999; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);" >
+            <img src="images/terms-conds.png" class="image_1">
+            <button onclick="remove()"><img src="images/back_button.png" class="image_2" style="position: absolute; top: 20px; left: 20px; transition: 0.5s ease;"></button>
+        </div>
+
+
+        <div class="estimated-delivery" id="estimated-delivery" style="display: none; z-index: 9999; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <div class="delivery-info" style="margin-top: 20px;">
+            <button onclick="bye()"><img src="images/back_button.png" class="image_3" style="position: absolute; top: 20px; left: 20px; transition: 0.5s ease;"></button>
+            <h1 class="del" style="margin-bottom: 20px;">Delivery</h1>
+          <p class="subdel" style="margin-bottom: 3%; font-size: 16px;">Delivery date:</p>
+          <select id="delivery-date" style="margin-bottom: 5%;">
+            <option value="2024-04-01">Mon, April 1</option>
+            <option value="2024-04-02">Tue, April 2</option>
+            <option value="2024-04-03">Wed, April 3</option>
+            <option value="2024-04-04">Thu, April 4</option>
+            <option value="2024-04-05">Fri, April 5</option>
+            <option value="2024-04-08">Mon, April 8</option>
+            <option value="2024-04-09">Tue, April 9</option>
+            <option value="2024-04-10">Wed, April 10</option>
+            <option value="2024-04-11">Thu, April 11</option>
+            <option value="2024-04-12">Fri, April 12</option>
+            <option value="2024-04-08">Mon, April 15</option>
+            <option value="2024-04-09">Tue, April 16</option>
+            <option value="2024-04-10">Wed, April 17</option>
+            <option value="2024-04-11">Thu, April 18</option>
+            <option value="2024-04-12">Fri, April 19</option>
+
+          </select>
+          <p class="subdel" style="margin-bottom: 3%; font-size: 16px;">Delivery time:</p>
+          <select id="delivery-time">
+            <option value="Standard (40 mins)">Standard (40 mins)</option>
+            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+            <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
+            <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+            <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+            <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+            <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+            <option value="5:00 PM - 6:00 PM">5:00 PM - 6:00 PM</option>
+          </select>
+        </div>
+        <button id="save" onclick="forSave()" style="margin-top: 5%;">SAVE</button>
+        </div>
+
+        <script>
+            var name = localStorage.getItem('name');
+            var email = localStorage.getItem('email');
+            var contact_no = localStorage.getItem('contact_no');
+            var address = localStorage.getItem('address');
+            var distance = localStorage.getItem('distance');
+            var promo_field = localStorage.getItem('promo_field');
+            var kimchi = localStorage.getItem('kimchi');
+            var lettuce = localStorage.getItem('lettuce');
+            var potato = localStorage.getItem('potato');
+            var fishcake = localStorage.getItem('fishcake');
+            var corn = localStorage.getItem('corn');
+            var nori = localStorage.getItem('nori');
+            var regular_box = localStorage.getItem('regular_box');
+            var premium_box = localStorage.getItem('premium_box');
+            const storedBoxMeatVariants = localStorage.getItem('boxMeatVariants');
+            const storedBoxMeatVariants_reg = localStorage.getItem('boxMeatVariants_1');
+
+            //FOR SIDE DISHES
+            if (kimchi > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Kimchi';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = kimchi;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (kimchi * 30) + '.00';
+
+                var addons_container = document.getElementById('addons-container');
+
+                qty.style.marginLeft = '25.05%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+
+                localStorage.setItem('kimchi', kimchi);
+            }
+
+            if (lettuce > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Lettuce';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = lettuce;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (lettuce * 30) + '.00';
+
+                qty.style.marginLeft = '24.5%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+                localStorage.setItem('lettuce', lettuce);
+            }
+
+            if (potato > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Potato Marbles';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = potato;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (potato * 30) + '.00';
+
+                qty.style.marginLeft = '17.75%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+
+                localStorage.setItem('potato', potato);
+            }
+
+            if (fishcake > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Fishcake';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = fishcake;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (fishcake * 30) + '.00';
+
+                qty.style.marginLeft = '23.25%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+
+                localStorage.setItem('fishcake', fishcake);
+            }
+
+            if (corn > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Corn';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = corn;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (corn * 30) + '.00';
+
+                qty.style.marginLeft = '26.75%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+
+                localStorage.setItem('corn', corn);
+            }
+
+            if (nori > 0) {
+                let row = document.createElement('div');
+                row.id = 'row-9';
+                let name = document.createElement('h3');
+                name.id = 'addon';
+                name.textContent = 'Nori';
+                let qty = document.createElement('h4');
+                qty.id = 'addons-quantity';
+                qty.textContent = nori;
+                let price = document.createElement('h4');
+                price.id = 'addons-price';
+                price.textContent = (nori * 30) + '.00';
+
+                qty.style.marginLeft = '27.25%';
+                price.style.marginLeft = '38.5%';
+
+                addons_container.appendChild(row);
+                row.appendChild(name);
+                row.appendChild(qty);
+                row.appendChild(price);
+
+                localStorage.setItem('nori', nori);
+            }
+
+            //alert(storedBoxMeatVariants);
+            //alert(storedBoxMeatVariants_reg);
+
+            const boxMeatVariants_reg = storedBoxMeatVariants_reg ? JSON.parse(storedBoxMeatVariants_reg) : [];
+             //FOR REGULAR BOX
+
+            if (regular_box <= 0) {
+
+            }
+            else{
+                for (let i = 0; i < boxMeatVariants_reg.length; i++) {
+                const box_1 = boxMeatVariants_reg[i];
+                
+                //alert(box_1);
+                // Access individual meat variants and their unique identifiers
+                const variant = box_1.variant;
+                
+                const uniqueIdentifier_1 = 'Box ' + (i + 1); // Unique identifier for each box
+
+                // Create elements for meat variants
+                const variant1Element_1 = document.createElement('h3');
+                variant1Element_1.textContent = uniqueIdentifier_1 + ' Meat Variant: Pork Galbi';
+
+                // Append meat variant elements to respective premium box containers
+                const regularBox = document.querySelector('.regular-container');
+                const box_2 = regularBox.querySelector('.row-3');
+
+                box_2.appendChild(variant1Element_1);
+                }
+            }
+
+            // Convert the stored JSON string back to an array
+            const boxMeatVariants = storedBoxMeatVariants ? JSON.parse(storedBoxMeatVariants) : [];
+
+            //FOR PREMIUM BOX
+
+            if (premium_box <= 0) {
+
+            }
+            else{
+                for (let i = 0; i < boxMeatVariants.length; i++) {
+                const box = boxMeatVariants[i];
+                
+                //alert(box);
+                // Access individual meat variants and their unique identifiers
+                const variant1 = box.variant1;
+                const variant2 = box.variant2;
+                
+                const uniqueIdentifier = 'Box ' + (i + 1); // Unique identifier for each box
+
+                // Create elements for meat variants
+                const variant1Element = document.createElement('h3');
+                variant1Element.textContent = uniqueIdentifier + ' Meat Variant 1: Pork Galbi';
+                const variant2Element = document.createElement('h3');
+                variant2Element.textContent = uniqueIdentifier + ' Meat Variant 2: Spicy Pork';
+
+                // Append meat variant elements to respective premium box containers
+                const premiumBox = document.querySelector('.premium-container');
+                const box6 = premiumBox.querySelector('.row-6');
+                const box7 = premiumBox.querySelector('.row-7');
+
+                box6.appendChild(variant1Element);
+                box7.appendChild(variant2Element);
+            }
+            }
+
+            //alert(name + email + contact_no + address + distance + promo_field + kimchi + lettuce + potato + fishcake + corn + nori + premium_box + regular_box);
+
+            document.getElementById('name').textContent = name;
+            document.getElementById('email').textContent = email;
+            document.getElementById('contact_no').textContent = contact_no;
+            document.getElementById('address').textContent = address;
+
+            document.getElementById('promo').textContent = promo_field;
+
+            let deli = (10 * distance) + 26;
+            document.getElementById('df').textContent = '₱' + parseInt(deli) + '.00';
+
+            let regular = regular_box * 269.00;
+            let premium = premium_box * 379.00;
+            let k = kimchi * 30.00;
+            let l = lettuce * 30.00;
+            let pm = potato * 30.00;
+            let fc= fishcake * 30.00;
+            let c = corn * 30.00;
+            let n = nori * 30.00;
+
+            document.getElementById('reg-quantity').textContent = regular_box;
+            document.getElementById('reg-price').textContent = regular_box * 269.00 +'.00';
+            document.getElementById('prem-quantity').textContent = premium_box;
+            document.getElementById('prem-price').textContent = premium_box * 379.00 +'.00';
+
+            let tots = regular + premium + k + l + pm + fc + c + n + deli;
+            document.getElementById('total').textContent = '₱' + parseInt(tots) + '.00';
+
+            let pop = document.getElementById('pop-up');
+            let est = document.getElementById('estimated-delivery');
+            let overlay = document.getElementById('overlay');
+           function show() {
+            
+                if (pop.style.opacity === '0' || pop.style.opacity === '') {
+                    pop.style.opacity = '1';
+                    pop.style.display = 'block'; // Show the pop-up
+                    overlay.style.display = 'block'; // Show the overlay
+                    overlay.style.opacity = '0.75';
+                    pop.style.zIndex = '9999';
+                    overlay.style.zIndex = '9998'; // Ensure the overlay is behind the popup
+                } else {
+                }
+            }
+            function remove(){
+                        pop.style.opacity = '0';
+                        pop.style.display = 'none';
+                        overlay.style.display = 'none';
+                        pop.style.zIndex = '-1';
+                        overlay.style.zIndex = '-1';
+            }   
+
+            function goTo(){
+                window.location.href = 'PersonalInfo.html';
+            }
+
+            function delivah() {
+                if (est.style.display === 'none') {
+                    est.style.display = 'block';
+                    overlay.style.display = 'block';
+                    overlay.style.opacity = '0.75';
+                    est.style.zIndex = '9999';
+                    overlay.style.zIndex = '9998'; 
+                } else {
+                    est.style.display = 'none';
+                    overlay.style.display = 'none';
+                    est.style.zIndex = '-1';
+                    overlay.style.zIndex = '-1';
+                }
+            }
+
+            function bye(){
+                        est.style.display = 'none';
+                        overlay.style.display = 'none';
+                        est.style.zIndex = '-1';
+                        overlay.style.zIndex = '-1';
+            }
+
+            gcash.addEventListener('change', function() {
+                if (gcash.checked) {
+                    console.log('gcash button is selected.');
+                    var mode = 'GCASH';
+                    localStorage.setItem('mode', mode);
+                }
+            });
+            cod.addEventListener('change', function() {
+                if (cod.checked) {
+                    console.log('cod button is selected.');
+                    var mode = 'Cash on Delivery';
+                    localStorage.setItem('mode', mode);
+                }
+            });
+
+            function getSelectedValue() {
+                const delivery_date = document.getElementById('delivery-date');
+                const selectedValue = delivery_date.value;
+                console.log('Selected value:', selectedValue);
+                
+                const delivery_time = document.getElementById('delivery-time');
+                const selectedValue_2 = delivery_time.value;
+                console.log('Selected value 2:', selectedValue_2);
+
+                document.getElementById('time').textContent = selectedValue_2;
+                document.getElementById('ddate').textContent = selectedValue;
+
+                localStorage.setItem('delivery_time', selectedValue_2);
+                localStorage.setItem('delivery_date', selectedValue);
+            }
+
+            function forSave(){
+                getSelectedValue();
+                bye();
+            }
+
+            function toInvoice(){
+                const d_time = document.getElementById('time').value;
+                const d_date = document.getElementById('ddate').value;
+                const reg_price = document.getElementById('reg-price').value;
+                const prem_price = document.getElementById('prem-price').value;
+
+                localStorage.setItem('name', name);
+                localStorage.setItem('email', email);
+                localStorage.setItem('contact_no', contact_no);
+                localStorage.setItem('address', address);
+                localStorage.setItem('distance', distance);
+                localStorage.setItem('kimchi', kimchi);
+                localStorage.setItem('lettuce', lettuce);
+                localStorage.setItem('potato', potato);
+                localStorage.setItem('fishcake', fishcake);
+                localStorage.setItem('corn', corn);
+                localStorage.setItem('nori', nori);
+                localStorage.setItem('premium_box', premium_box);
+                localStorage.setItem('prem_price', prem_price);
+                localStorage.setItem('regular_box', regular_box);
+                localStorage.setItem('reg_price', reg_price);
+                localStorage.setItem('promo', promo_field);
+                localStorage.setItem('df', deli);
+                localStorage.setItem('total', tots);
+                localStorage.setItem('storedBoxMeatVariants', storedBoxMeatVariants);
+                localStorage.setItem('storedBoxMeatVariants_reg', storedBoxMeatVariants_reg);
+                window.location.href = 'Invoice.html';
+            }
+
+        document.getElementById('goBackButton').addEventListener('click', function() {
+            window.history.back();
+        });
+
+        </script>
+    </body>
+</html>
